@@ -207,9 +207,9 @@ class PlayerAi:
                 tank.stop()
                 targets = self.find_target(tank)
 
-                if targets["jet"][0] < 20:
+                if targets["jet"][0] < 25:
                     tank.goto(targets["jet"][1][0], targets["jet"][1][1])
-                elif targets["tank"][0] < 20:
+                elif targets["tank"][0] < 25:
                     tank.goto(targets["tank"][1][0], targets["tank"][1][1])
                 else:
                     tank.goto(tank.owner.x, tank.owner.y)
