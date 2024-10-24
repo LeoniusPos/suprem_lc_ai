@@ -82,7 +82,6 @@ class PlayerAi:
         # Get information about my team
         myinfo = info[self.team]
         self.get_targets(info)
-        print(self.targets)
 
         # Controlling my bases =================================================
 
@@ -232,7 +231,7 @@ class PlayerAi:
                     # convert the ship to a base if it is far from the owning base,
                     # set a random heading otherwise
                     if ship.stuck:
-                        if ship.get_distance(ship.owner.x, ship.owner.y) > 80:
+                        if ship.get_distance(ship.owner.x, ship.owner.y) > 60:
                             ship.convert_to_base()
                         else:
                             ship.set_heading(np.random.random() * 360.0)
