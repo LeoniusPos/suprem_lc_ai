@@ -15,6 +15,7 @@ class PlayerAi:
         self.team = CREATOR  # Mandatory attribute
         self.ntanks = {}
         self.nships = {}
+        self.njets = {}
         self.base_numbers = {}
         self.targets = {}
         # self.target = {"tank0" : (x, y)}
@@ -121,6 +122,7 @@ class PlayerAi:
             if uid not in self.ntanks:
                 self.ntanks[uid] = 0
                 self.nships[uid] = 0
+                self.njets[uid] = 0
 
             # Firstly, each base should build a mine if it has less than 3 mines
             if base.mines < 3:
@@ -137,7 +139,11 @@ class PlayerAi:
                         ship = base.build_ship(heading=360 * np.random.random())
                         self.nships[uid] += 1
                 elif base.crystal > base.cost("jet"):
-                    jet = base.build_jet(heading=360 * np.random.random())
+                    if self.njets[uid] > 0 and self.njets[uid] % 5 == 0:
+                        base.build_ship(heading=360 * np.random.random())
+                    else:
+                        jet = base.build_jet(heading=360 * np.random.random())
+                        self.njets[uid] += 1
 
         # Try to find an enemy target
         target = None
