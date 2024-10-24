@@ -124,7 +124,7 @@ class PlayerAi:
                 self.nships[uid] = 0
 
             # Firstly, each base should build a mine if it has less than 3 mines
-            if base.mines < 2:
+            if base.mines < 3:
                 if base.crystal > base.cost("mine"):
                     base.build_mine()
             # If we have enough mines, pick something at random
@@ -210,10 +210,10 @@ class PlayerAi:
 
                 if targets["jet"][0] < 15:
                     print(targets)
-                    tank.goto(*targets["jet"][1])
+                    tank.goto(targets["jet"][1][0], targets["jet"][1][1])
                 elif targets["tank"][0] < 15:
                     print(targets)
-                    tank.goto(*targets["tank"][1])
+                    tank.goto(targets["tank"][1][0], targets["tank"][1][1])
                 else:
                     tank.goto(tank.owner.x, tank.owner.y)
                 """
