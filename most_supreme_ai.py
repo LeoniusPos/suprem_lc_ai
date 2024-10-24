@@ -247,8 +247,5 @@ class PlayerAi:
 
                 if targets["base"][0] < 300:
                     print(targets)
-                    jet.goto(targets["jet"][1][0], targets["jet"][1][1])
-                elif targets["tank"][0] < 300:
-                    print(targets)
-                    jet.goto(targets["tank"][1][0], targets["tank"][1][1])
+                    jet.goto(targets["base"][1][0], targets["base"][1][1])
 
