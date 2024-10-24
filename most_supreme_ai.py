@@ -209,10 +209,8 @@ class PlayerAi:
                 targets = self.find_target(tank)
 
                 if targets["jet"][0] < 15:
-                    print(targets)
                     tank.goto(targets["jet"][1][0], targets["jet"][1][1])
                 elif targets["tank"][0] < 15:
-                    print(targets)
                     tank.goto(targets["tank"][1][0], targets["tank"][1][1])
                 else:
                     tank.goto(tank.owner.x, tank.owner.y)
@@ -245,7 +243,6 @@ class PlayerAi:
                 # Jets simply go to the target if there is one, they never get stuck
                 targets = self.find_target(jet)
 
-                if targets["base"][0] < 300:
-                    print(targets)
+                if targets["base"][0] < 600:
                     jet.goto(targets["base"][1][0], targets["base"][1][1])
 
